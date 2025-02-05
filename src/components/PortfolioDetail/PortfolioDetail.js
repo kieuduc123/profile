@@ -2,7 +2,6 @@ import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import Gallery from '../Gallery/Gallery';
 import './portfolio-detail.scss';
 const PortfolioDetail = ({ item, id }) => {
-    console.log(id);
     const handleClose = () => {
         const detailElement = document.querySelector(`#portfolio-detail-${id}`);
         if (detailElement) {

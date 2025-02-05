@@ -11,6 +11,7 @@ interface PortfolioItem {
     source: string;
     preview: string;
     video: string;
+    thumbUrl: any[];
 }
 interface Props {
     item: PortfolioItem;

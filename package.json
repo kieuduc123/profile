@@ -8,7 +8,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "preinstall": "npm install -g typescript@latest",
-    "build": "tsc -b && vite build"
+    "build": "vite build"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",

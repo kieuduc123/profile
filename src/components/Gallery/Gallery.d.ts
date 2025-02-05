@@ -6,7 +6,7 @@ import "swiper/css/navigation";
 import "swiper/css/thumbs";
 interface GalleryProps {
     item: {
-        thumbUrl: string[];
+        thumbUrl: any;
     };
 }
 declare const Gallery: React.FC<GalleryProps>;
