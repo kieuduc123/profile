@@ -12,7 +12,7 @@ import "swiper/css/thumbs";
 import { FreeMode, Navigation, Thumbs } from "swiper/modules";
 interface GalleryProps {
   item: {
-    thumbUrl: string[];
+    thumbUrl: any;
   };
 }
 
