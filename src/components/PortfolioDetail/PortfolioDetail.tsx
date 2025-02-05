@@ -12,6 +12,7 @@ interface PortfolioItem {
   source: string;
   preview: string;
   video: string;
+  thumbUrl: any[];
 }
 
 interface Props {
@@ -20,7 +21,6 @@ interface Props {
 }
 
 const PortfolioDetail: React.FC<Props> = ({ item, id }) => {
-  console.log(id)
   const handleClose = () => {
     const detailElement = document.querySelector(`#portfolio-detail-${id}`) as HTMLElement;
     if (detailElement) {
