@@ -1,0 +1,81 @@
+@use "../../scss/" as *;
+@use "sass:math";
+
+.portfolio-card {
+  width: calc((100% / 3) - 20px);
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+  opacity: 0;
+  animation: fade-right 0.3s ease-in-out;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+  @for $i from 1 through 7 {
+    &:nth-child(#{$i}) {
+      animation-delay: #{math.div($i, 6)}s;
+    }
+  }
+  @include tablet {
+    width: calc((100% / 2) - 15px);
+  }
+  @include mobile {
+    width: 100%;
+  }
+
+  .bg-wrap {
+    width: 100%;
+    padding-top: 62.5%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  h3 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -30%);
+    font-size: 24px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: $white;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s ease, transform 0.5s ease;
+    z-index: 2;
+  }
+  &:hover {
+    cursor: pointer;
+  }
+  &::after {
+    position: absolute;
+    content: "";
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: $black;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+    z-index: 1;
+  }
+  &:hover::after {
+    opacity: 0.5;
+    visibility: visible;
+  }
+  &:hover h3 {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -50%);
+  }
+}
+@keyframes fade-right {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
