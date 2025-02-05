@@ -41,7 +41,7 @@ const Header = () => {
           key={i}
           className="nav-item"
         >
-          <Link to={item.path} className={i === active ? 'active' : null}>
+          <Link to={item.path} className={i === active ? 'active' : ''}>
             <h2>{item.name}</h2>
             <i className={item.icon}></i>
           </Link>

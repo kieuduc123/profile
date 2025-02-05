@@ -31,6 +31,6 @@ const nav = [
 const Header = () => {
     const { pathname } = useLocation();
     const active = nav.findIndex((e) => e.path === pathname);
-    return (_jsx("ul", { className: "nav-list", children: nav.map((item, i) => (_jsx("li", { className: "nav-item", children: _jsxs(Link, { to: item.path, className: i === active ? 'active' : null, children: [_jsx("h2", { children: item.name }), _jsx("i", { className: item.icon })] }) }, i))) }));
+    return (_jsx("ul", { className: "nav-list", children: nav.map((item, i) => (_jsx("li", { className: "nav-item", children: _jsxs(Link, { to: item.path, className: i === active ? 'active' : '', children: [_jsx("h2", { children: item.name }), _jsx("i", { className: item.icon })] }) }, i))) }));
 };
 export default Header;

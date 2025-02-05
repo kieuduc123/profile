@@ -1,4 +1,3 @@
-import React from "react";
 import "./about.scss";
 import PageHeader from "../../components/PageHeader/PageHeader";
 import Separator from "../../components/Separator/Separator";

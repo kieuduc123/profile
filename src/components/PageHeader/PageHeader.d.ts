@@ -1,3 +1,4 @@
+/// <reference types="react" />
 import './page-header.scss';
 interface PageHeaderProps {
     white: string;

@@ -1,4 +1,4 @@
-import React from 'react';
+/// <reference types="react" />
 import './modal.scss';
 type ModalProps = {
     id?: string;

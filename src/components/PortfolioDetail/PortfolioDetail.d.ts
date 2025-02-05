@@ -1,3 +1,4 @@
+/// <reference types="react" />
 import './portfolio-detail.scss';
 interface PortfolioItem {
     title: string;

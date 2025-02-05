@@ -1,27 +1,38 @@
-import React, { useRef } from 'react'
-import './button.scss'
+import { useRef } from "react";
+import "./button.scss";
 
-const Button = props => {
+type ButtonProps = {
+  className?: string;
+  type?: "button" | "submit" | "reset";
+  children: React.ReactNode;
+};
 
-  const btnRef = useRef(null)
+const Button = ({ className = "", type = "button", children }: ButtonProps) => {
+  const btnRef = useRef<HTMLButtonElement | null>(null);
 
   const handleHoverIn = () => {
-    btnRef.current.classList.add('is-hover')
-  }
+    if (btnRef.current) {
+      btnRef.current.classList.add("is-hover");
+    }
+  };
+
   const handleHoverOut = () => {
-    btnRef.current.classList.remove('is-hover')
-  }
+    if (btnRef.current) {
+      btnRef.current.classList.remove("is-hover");
+    }
+  };
+
   return (
     <button
-      className={`btn ${props.className}`}
-      type={props.type}
+      className={`btn ${className}`}
+      type={type}
       onMouseEnter={handleHoverIn}
       onMouseLeave={handleHoverOut}
       ref={btnRef}
     >
-      {props.children}
+      {children}
     </button>
-  )
-}
+  );
+};
 
-export default Button
+export default Button;

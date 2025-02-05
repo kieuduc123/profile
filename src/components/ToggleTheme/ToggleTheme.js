@@ -16,7 +16,10 @@ const ToggleTheme = () => {
                 return 'dark';
             }
         });
-        document.querySelector('.toggle-theme').classList.toggle('active');
+        const themeToggleElement = document.querySelector('.toggle-theme');
+        if (themeToggleElement) {
+            themeToggleElement.classList.toggle('active');
+        }
     };
     return (_jsxs("button", { className: "toggle-theme ", onClick: onClickTheme, children: [_jsx("i", { className: 'bx bxs-moon' }), _jsx("i", { className: 'bx bx-bulb' })] }));
 };

@@ -1,7 +1,5 @@
-import React from "react";
 import "./info.scss";
 import Button from "../Button/Button";
-import { Link } from "react-router-dom";
 const info = {
   firstName: "La (ら)",
   lastName: "Duc (ふぉっくろっく)",

@@ -7,4 +7,21 @@ export default defineConfig({
             overlay: false,
         },
     },
+    build: {
+        target: 'esnext',
+        rollupOptions: {
+            input: 'src/main.tsx',
+            output: {
+                format: 'esm',
+            },
+        },
+        minify: false,
+    },
+    optimizeDeps: {
+        esbuildOptions: {
+            loader: {
+                '.ts': 'tsx',
+            },
+        },
+    },
 });

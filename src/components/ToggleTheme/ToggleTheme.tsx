@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import './toggletheme.scss'
 const ToggleTheme = () => {
   const storedTheme = localStorage.getItem('theme') || 'dark';
@@ -17,7 +17,11 @@ const ToggleTheme = () => {
         return 'dark'
       }
     })
-    document.querySelector('.toggle-theme').classList.toggle('active')
+     const themeToggleElement = document.querySelector('.toggle-theme');
+  
+  if (themeToggleElement) {
+    themeToggleElement.classList.toggle('active');
+  }
 }
   return (
     <button className="toggle-theme " onClick={onClickTheme}>

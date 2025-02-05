@@ -1,13 +1,14 @@
-import React, { useState, useEffect, useRef } from 'react'
-import PageHeader from '../../components/PageHeader/PageHeader'
-import './contact.scss'
+import { useState, useEffect, useRef } from 'react';
+import PageHeader from '../../components/PageHeader/PageHeader';
+import './contact.scss';
 
-import { useForm } from "react-hook-form";
+import { useForm, SubmitHandler } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { init, sendForm } from 'emailjs-com';
 import * as yup from "yup";
 import Button from '../../components/Button/Button';
 import Modal, { ModalContent } from '../../components/Modal/Modal';
+
 init("dmhozFSDKhmbKpaGR");
 
 const schema = yup.object().shape({
@@ -29,34 +30,48 @@ const schema = yup.object().shape({
     .max(255)
 });
 
+interface IFormInput {
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
+}
+
 const Contact = () => {
   useEffect(() => {
     window.scrollTo(0, 0)
-  }, [])
-  const { register, handleSubmit, formState: { errors } } = useForm({ resolver: yupResolver(schema) });
-  const [contactNumber, setContactNumber] = useState("000000");
-  // const [statusMessage, setStatusMessage] = useState("Message");
-  const formRef = useRef(null)
-  const statusRef = useRef(null)
+  }, []);
+
+  const { register, handleSubmit, formState: { errors } } = useForm<IFormInput>({ resolver: yupResolver(schema) });
+  const [_contactNumber, setContactNumber] = useState<any>("000000");
+  const formRef = useRef<HTMLFormElement | null>(null);
+
   const generateContactNumber = () => {
     const numStr = "000000" + (Math.random() * 1000000 | 0);
     setContactNumber(numStr.substring(numStr.length - 6));
-  }
-  const handleClose1 = () => {
-    document.querySelector('#modal-1').className = "modal"
-  }
-  const handleClose2 = () => {
-    document.querySelector('#modal-2').className = "modal"
-  }
-  const onMessageSubmit = (data) => {
-    generateContactNumber()
-    sendForm('default_service', 'template_5prqtp4', '#contact-form')
-      .then(function (response) {
-        document.querySelector('#modal-1').className = "modal active"
+  };
 
-        formRef.current.reset();
-      }, function (error) {
-        document.querySelector('#modal-2').className = "modal active"
+  const handleClose1 = () => {
+    const modal1 = document.querySelector('#modal-1') as HTMLElement;
+    modal1.className = "modal";
+  };
+
+  const handleClose2 = () => {
+    const modal2 = document.querySelector('#modal-2') as HTMLElement;
+    modal2.className = "modal";
+  };
+
+  const onMessageSubmit: SubmitHandler<IFormInput> = (_data) => {
+    generateContactNumber();
+    sendForm('default_service', 'template_5prqtp4', '#contact-form')
+      .then(function (_response) {
+        const modal1 = document.querySelector('#modal-1') as HTMLElement;
+        modal1.className = "modal active";
+
+        formRef.current?.reset();
+      }, function (_error) {
+        const modal2 = document.querySelector('#modal-2') as HTMLElement;
+        modal2.className = "modal active";
       });
   };
 
@@ -78,19 +93,19 @@ const Contact = () => {
                     埼玉県草加市
                   </li>
                   <li>
-                    <div className="icon"><i className='bx bxs-envelope-open' ></i></div>
+                    <div className="icon"><i className='bx bxs-envelope-open'></i></div>
                     <span>メールアドレス</span>
                     cxxx150@ccg.ac.jp
                   </li>
                   <li>
-                    <div className="icon"><i className='bx bxs-phone-call' ></i></div>
+                    <div className="icon"><i className='bx bxs-phone-call'></i></div>
                     <span>電話番号</span>
                     <a href="tel:07089592557">07089592xxx</a>
                   </li>
                 </ul>
                 <ul className="social-list">
-                  <li><a href="https://www.facebook.com/loc.la.9693/"><i className='bx bxl-facebook' ></i></a></li>
-                  <li><a href="https://github.com/LaPhuocLoc"><i className='bx bxl-github' ></i></a></li>
+                  <li><a href="https://www.facebook.com/loc.la.9693/"><i className='bx bxl-facebook'></i></a></li>
+                  <li><a href="https://github.com/LaPhuocLoc"><i className='bx bxl-github'></i></a></li>
                 </ul>
               </div>
             </div>
@@ -99,70 +114,58 @@ const Contact = () => {
                 <div className="field contact-form__info">
                   <div className="contact-form__info-name">
                     <input {...register("name")} placeholder="your name" />
-                    {errors.name &&
-                      <span className="error">{errors.name?.message}</span>}
+                    {errors.name && <span className="error">{errors.name?.message}</span>}
                   </div>
                   <div className="contact-form__info-email">
                     <input {...register("email")} placeholder="your email" />
-                    {errors.email &&
-                      <span className="error">{errors.email?.message}</span>}
+                    {errors.email && <span className="error">{errors.email?.message}</span>}
                   </div>
                 </div>
-                <div className="field contact-form__subject" >
+                <div className="field contact-form__subject">
                   <input {...register("subject")} placeholder="your subject" />
-                  {errors.subject &&
-                    <span className="error">{errors.subject?.message}</span>}
+                  {errors.subject && <span className="error">{errors.subject?.message}</span>}
                 </div>
-                <div className="field contact-form__message" >
+                <div className="field contact-form__message">
                   <textarea {...register("message")} placeholder="your message" />
-                  {errors.message &&
-                    <span className="error">{errors.message?.message}</span>}
+                  {errors.message && <span className="error">{errors.message?.message}</span>}
                 </div>
                 <div className="field">
                   <Button type="submit">
                     <span className="btn-text">send message</span>
                     <span className="btn-icon">
-                      <i className='bx bx-mail-send bx-tada' ></i>
+                      <i className='bx bx-mail-send bx-tada'></i>
                     </span>
                   </Button>
-                  {/* <p className="status-message" ref={statusRef}>{statusMessage} </p> */}
                 </div>
               </form>
             </div>
           </div>
         </div>
       </div>
-      <Modal id="modal-1">
+      <Modal id="modal-1" active={false}>
         <ModalContent className="success">
           <div className="icon">
-            <i className='bx bx-check' ></i>
+            <i className='bx bx-check'></i>
           </div>
-
           <h3>Success!</h3>
-          <p>We've sent a confirmation to your e-mail
-            for verification.</p>
+          <p>We've sent a confirmation to your e-mail for verification.</p>
           <button type="button" className="redo-btn" onClick={handleClose1}>Ok</button>
           <span className="change">-- Click to close the modal --</span>
-
         </ModalContent>
       </Modal>
-      <Modal id="modal-2">
+      <Modal id="modal-2" active={false}>
         <ModalContent className="error">
           <div className="icon">
             <i className='bx bxs-dislike'></i>
           </div>
-
           <h3>Oh no!</h3>
-          <p>Oops! Something went wrong,
-            you should try again.
-          </p>
+          <p>Oops! Something went wrong, you should try again.</p>
           <button type="button" className="redo-btn" onClick={handleClose2}>Ok</button>
           <span className="change">-- Click to close the modal --</span>
         </ModalContent>
       </Modal>
     </>
-
-  )
+  );
 }
 
-export default Contact
+export default Contact;
