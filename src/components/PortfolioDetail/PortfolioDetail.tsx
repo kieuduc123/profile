@@ -39,13 +39,13 @@ const PortfolioDetail: React.FC<Props> = ({ item, id }) => {
           </div>
 
           <div className="portfolio-detail__content-right">
-            <h3><span>詳細</span></h3>
+            <h3><span>Mô tả</span></h3>
             <p>{item.description}</p>
             <ul>
               <li> Created - <span>{item.date}</span> </li>
               <li> Role - <span>{item.role}</span> </li>
               <li> Frontend - <span>{item.frontend.join(", ")}</span> </li>
-              <li> Backend - <span>{item.backend}</span> </li>
+              {/*<li> Backend - <span>{item.backend}</span> </li>*/}
               <li> Tags - <span style={{ textTransform: "lowercase" }}>{item.tags.join(' / ')}</span> </li>
               <li> Source - <a href={item.source} target="_blank" rel="noopener noreferrer">{item.source}</a> </li>
               <li> Demo - <a href={item.preview} target="_blank" rel="noopener noreferrer">{item.preview}</a> </li>

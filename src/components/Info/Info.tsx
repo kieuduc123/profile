@@ -1,72 +1,65 @@
 import "./info.scss";
 import Button from "../Button/Button";
+
 const info = {
-  firstName: "La (ら)",
-  lastName: "Duc (ふぉっくろっく)",
-  birthday: "22歳",
-  sex: "男",
-  nation: "ベトナム",
-  address: "埼玉県草加市",
-  phone: "07089592xxx",
-  email: "cxxx150@ccg.ac.jp",
-  facebook: "facebook.com/loc.la.9693",
-  git: "https://github.com/LaPhuocLoc",
-  language: "ベトナム語、日本語",
+  firstName: "Kieu",
+  lastName: "Duc",
+  birthday: "23 years old",
+  sex: "Male",
+  nation: "Vietnam",
+  address: "Ha Noi",
+  phone: "0394953305",
+  email: "kieutrungduc.info@gmail.com",
+  facebook: "bit.ly/kieuduc",
+  git: "https://github.com/kieuduc123",
+  language: "Vietnamese, Japanese",
 };
+
 const card = [
   {
     title: "7",
-    text: "個人",
-    span: "プロジェクト",
+    text: "Personal",
+    span: "Projects",
   },
   {
     title: "1",
-    text: "プログラミング",
-    span: "経験年数",
-  },
-  {
-    title: "1",
-    text: "幸せな",
-    span: "顧客",
-  },
-  {
-    title: "1",
-    text: "アワード",
-    span: "受賞",
+    text: "Years of",
+    span: "Programming",
   },
 ];
+
 const Info = () => {
   return (
     <div className="info">
       <div className="info__basic" data-aos="fade-up-right">
-        <h3>基本情報</h3>
+        <h3>Basic Information</h3>
         <ul className="info-list">
           <li>
-            <span>姓: </span>
+            <span>First Name: </span>
             {info.firstName}
           </li>
           <li>
-            <span>名: </span>
+            <span>Last Name: </span>
             {info.lastName}
           </li>
           <li>
-            <span>生年月日: </span>
+            <span>Date of Birth: </span>
             {info.birthday}
           </li>
           <li>
-            <span>性別: </span>
+            <span>Gender: </span>
             {info.sex}
           </li>
           <li>
-            <span>国籍: </span>
+            <span>Nationality: </span>
             {info.nation}
           </li>
           <li>
-            <span>現住所: </span>
+            <span>Current Address: </span>
             {info.address}
           </li>
           <li>
-            <span>電話番号: </span>
+            <span>Phone Number: </span>
             {info.phone}
           </li>
           <li>
@@ -74,21 +67,22 @@ const Info = () => {
             {info.facebook}
           </li>
           <li>
-            <span>言語: </span>
+            <span>Languages: </span>
             {info.language}
           </li>
           <li>
-            <span>メール: </span>
+            <span>Email: </span>
             {info.email}
           </li>
         </ul>
         <Button>
           <a
-            href="https://drive.google.com/file/d/14BNcLxvB7DAkVSYYgVbuBf9fup7E4eNB"
+            target='_blank'
+            href="https://drive.google.com/file/d/1q4f0ar4vOdC7ZTbEM2U6YI70_56R7bD8/view?usp=sharing"
             rel="noopener"
             download
           >
-            <span className="btn-text">履歴書ダウンロード</span>
+            <span className="btn-text">Download CV</span>
             <span className="btn-icon">
               <i className="bx bxs-download"></i>
             </span>

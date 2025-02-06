@@ -1,0 +1,84 @@
+@use "../../scss/" as *;
+
+
+.notfound {
+  @include flex(center, center);
+  width: 100%;
+  height: 100%;
+  flex-wrap: wrap;
+  @include tablet {
+    flex-direction: column;
+    padding: 0 1rem;
+    height: 60vh;
+
+  }
+  &__img {
+    @include flex(center, center);
+    width: auto;
+    height: 100%;
+    padding: 0 2rem;
+    @include tablet {
+      height: auto;
+      width: 100%;
+    }
+    &-wrap {
+      width: 500px;
+      max-height: 100%;
+      aspect-ratio: 1/1;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-image: url(../../assets/notfound.jpg);
+      background-color: $black;
+      @include mobile {
+        width: 230px;
+        height: 230px;
+      }
+    }
+  }
+  &__text {
+    @include flex(center, center);
+    width: 66.67%;
+    height: 100%;
+    @include tablet {
+      display: block;
+      height: auto;
+      width: 100%;
+    }
+    &-wrap {
+      width: 80%;
+      @include tablet {
+        width: 100%;
+        text-align: center;
+      }
+      & h1 {
+        font-size: 51px;
+        line-height: 62px;
+        font-weight: 700;
+        margin: 18px 0 10px;
+        position: relative;
+        padding-left: 70px;
+        color: var(--main-color);
+        text-transform: capitalize;
+        @include laptop {
+          font-size: 44px;
+        }
+        @include tablet {
+          font-size: 38px;
+          line-height: 48px;
+          padding: 0;
+        }
+        @include mobile {
+          font-size: 29px;
+          line-height: 39px;
+          text-align: center;
+        }
+        & span {
+          color: var(--txt-color);
+          display: block;
+          text-align: center;
+        }
+      }
+    }
+  }
+}

@@ -9,7 +9,7 @@ import * as yup from "yup";
 import Button from '../../components/Button/Button';
 import Modal, { ModalContent } from '../../components/Modal/Modal';
 
-init("dmhozFSDKhmbKpaGR");
+init("dBaEcWnAM2EZ4lquH");
 
 const schema = yup.object().shape({
   name: yup
@@ -63,7 +63,7 @@ const Contact = () => {
 
   const onMessageSubmit: SubmitHandler<IFormInput> = (_data) => {
     generateContactNumber();
-    sendForm('default_service', 'template_5prqtp4', '#contact-form')
+    sendForm('service_qv8fv0a', 'template_yakqoqa', '#contact-form')
       .then(function (_response) {
         const modal1 = document.querySelector('#modal-1') as HTMLElement;
         modal1.className = "modal active";
@@ -84,28 +84,29 @@ const Contact = () => {
           <div className="row">
             <div className="col col-4">
               <div className="contact-info mb-3">
-                <h3>連絡先</h3>
-                <p>最後までご覧いただきありがとうございました。このサイトを通して、私のことを少しでも知っていただけたのなら嬉しいです。もしこのサイトや私について何かコメントがありましたら、フォームをご利用ください。</p>
+                <h3>Liên hệ</h3>
+                <p>Cảm ơn bạn đã xem đến cuối. Tôi rất vui nếu bạn có thể biết thêm về tôi thông qua trang web này.
+                  Nếu bạn có bất kỳ nhận xét nào về trang web này hoặc về tôi, vui lòng sử dụng biểu mẫu liên hệ.</p>
                 <ul className="contact-info__list">
                   <li>
                     <div className="icon"><i className='bx bxs-map'></i></div>
-                    <span>現住所</span>
-                    埼玉県草加市
+                    <span>Địa chỉ hiện tại</span>
+                    Số 49 ngõ 99 cầu diễn
                   </li>
                   <li>
                     <div className="icon"><i className='bx bxs-envelope-open'></i></div>
-                    <span>メールアドレス</span>
-                    cxxx150@ccg.ac.jp
+                    <span>Địa chỉ email</span>
+                    kieutrungduc.info@gmail.com
                   </li>
                   <li>
                     <div className="icon"><i className='bx bxs-phone-call'></i></div>
-                    <span>電話番号</span>
-                    <a href="tel:07089592557">07089592xxx</a>
+                    <span>Số điện thoại</span>
+                    <a href="tel:07089592557">0394953305</a>
                   </li>
                 </ul>
                 <ul className="social-list">
-                  <li><a href="https://www.facebook.com/loc.la.9693/"><i className='bx bxl-facebook'></i></a></li>
-                  <li><a href="https://github.com/LaPhuocLoc"><i className='bx bxl-github'></i></a></li>
+                  <li><a href="bit.ly/kieuduc"><i className='bx bxl-facebook'></i></a></li>
+                  <li><a href="https://github.com/kieuduc123"><i className='bx bxl-github'></i></a></li>
                 </ul>
               </div>
             </div>

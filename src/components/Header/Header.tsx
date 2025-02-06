@@ -22,11 +22,11 @@ const nav = [
     icon: 'bx bxs-envelope-open',
     path: '/contact'
   },
-  {
-    name: 'Blog',
-    icon: 'bx bxl-blogger',
-    path: '/blog'
-  },
+  // {
+  //   name: 'Blog',
+  //   icon: 'bx bxl-blogger',
+  //   path: '/blog'
+  // },
 ]
 
 const Header = () => {

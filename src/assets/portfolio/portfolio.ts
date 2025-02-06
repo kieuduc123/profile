@@ -1,42 +1,63 @@
-import portfolio1 from './portfolio/1.png'
-import portfolio2 from './portfolio/2.png'
-import portfolio3 from './portfolio/3.png'
-import portfolio4 from './portfolio/4.png'
-import music1 from './music/1.jpg'
-import music2 from './music/2.jpg'
-import movie1 from './movie/1.jpg'
-import movie2 from './movie/2.jpg'
-import movie3 from './movie/3.jpg'
-import movie4 from './movie/4.jpg'
-import movie5 from './movie/5.jpg'
-import theater1 from './theater/1.jpg'
-import theater2 from './theater/2.jpg'
-import theater3 from './theater/3.jpg'
-import foodie1 from './foodie/1.jpg'
-import foodie2 from './foodie/2.jpg'
-import foodie3 from './foodie/3.jpg'
-import foodie4 from './foodie/4.jpg'
-import foodie5 from './foodie/5.jpg'
-import ec1 from './ec/1.jpg'
-import ec2 from './ec/2.jpg'
-import ec3 from './ec/3.jpg'
-import ec4 from './ec/4.jpg'
-import game1 from './game/1.jpg'
-import game2 from './game/2.jpg'
-import game3 from './game/3.jpg'
-import game4 from './game/4.jpg'
-import game5 from './game/5.jpg'
+import portfolio1 from './portfolio/1.png';
+import portfolio2 from './portfolio/2.png';
+import portfolio3 from './portfolio/3.png';
+import portfolio4 from './portfolio/4.png';
+import vetc1 from './vetc/1.png';
+import vetc2 from './vetc/2.png';
+import vetc3 from './vetc/3.png';
+import vetc4 from './vetc/4.png';
+import vetc5 from './vetc/5.png';
+import vetc6 from './vetc/6.png';
+import movie1 from './movie/1.png';
+import movie2 from './movie/2.png';
+import movie3 from './movie/3.png';
+import movie4 from './movie/4.png';
+import bvm1 from './bvm/1.png';
+import bvm2 from './bvm/2.png';
+import bvm3 from './bvm/3.png';
+import bvm4 from './bvm/4.png';
+import bvm5 from './bvm/5.png';
+import bvm6 from './bvm/6.png';
+import manshop1 from './manshop/1.png';
+import manshop2 from './manshop/2.png';
+import manshop3 from './manshop/3.png';
+import manshop4 from './manshop/4.png';
+import manshop5 from './manshop/5.png';
+import manshop6 from './manshop/6.png';
+import pmc1 from './pmc/1.png';
+import pmc2 from './pmc/2.png';
+import pmc3 from './pmc/3.png';
+import pmc4 from './pmc/4.png';
+import pmc5 from './pmc/5.png';
+import pmc6 from './pmc/6.png';
+import pmc7 from './pmc/7.png';
+import shoes1 from './shoes/1.png';
+import shoes2 from './shoes/2.png';
+import shoes3 from './shoes/3.png';
 
 
-
-
-
-export { 
-    portfolio1, portfolio2, portfolio3, portfolio4,
-    music1,music2,
-    theater1,theater2,theater3,
-    foodie1,foodie2,foodie3,foodie4,foodie5,
-    ec1,ec2,ec3,ec4,
-    game1,game2,game3,game4,game5,
-    movie1,movie2,movie3,movie4,movie5,
-}
+export {
+  portfolio1,
+  portfolio2,
+  portfolio3,
+  portfolio4,
+  vetc1,
+  vetc2,
+  vetc3,
+  vetc4,
+  vetc5,
+  vetc6,
+  bvm1, bvm2,  bvm3, bvm4, bvm5, bvm6,
+  manshop1,
+  manshop2,
+  manshop3,
+  manshop4,
+  manshop5,
+  manshop6,
+  pmc1, pmc2, pmc3, pmc4, pmc5, pmc6, pmc7,
+  shoes1, shoes2, shoes3,
+  movie1,
+  movie2,
+  movie3,
+  movie4,
+};
