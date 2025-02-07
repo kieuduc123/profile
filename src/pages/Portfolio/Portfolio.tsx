@@ -78,7 +78,6 @@ const portfolio = [
     backend: 'The Movie Database (TMDB) API',
     source: 'https://github.com/kieuduc123/ProjectMini-Movies',
     preview: 'https://projectmini-movies.netlify.app/',
-    // video: 'https://youtu.be/EwX2gFZFobA',
     tags: [
       'git',
       'ui / ux',
@@ -103,7 +102,7 @@ const portfolio = [
     backend: 'không',
     source: 'https://github.com/kieuduc123/Project-ASP-React',
     preview: 'https://shop-shose.netlify.app//',
-    video: 'không',
+    // video: 'không',
     tags: [
       'git',
       'ui / ux',
@@ -117,20 +116,21 @@ const portfolio = [
   {
     id: 4,
     thumbUrl: [portfolio1, portfolio2, portfolio3, portfolio4],
-    date: '2022月3月25日2022月4月1日',
+    date: '05/02/2025 - 07/02/2025',
     title: 'My Portfolio',
     description:
-      'このWebページです。HTMLとCSS(SASS),ReactJSを使用し、シングルページアプリケーションに仕上げました。これまでに手がけた制作物、身につけたスキルをまとめています。',
+      'Đây là một trang web cá nhân. Tôi đã sử dụng HTML, CSS (SASS) và ReactJS để tạo một ứng dụng trang đơn (SPA). Trang này tổng hợp các sản phẩm tôi đã thực hiện và các kỹ năng tôi đã tích lũy.',
     role: 'Frontend',
     frontend: ['SCSS', 'React'],
-    backend: 'なし',
+    backend: 'không',
     source: 'https://github.com/kieuduc123/profile',
     preview: 'https://projects-profiles.netlify.app/',
-    video: 'không',
+    // video: 'không',
     tags: [
       'react',
       'scss',
       'ui/ux',
+       'emailjs',
       'responsive',
       'animation',
       'portfolio',
@@ -149,7 +149,7 @@ const portfolio = [
     backend: 'không',
     source: 'https://github.com/kieuduc123/project-pharmacy',
     preview: 'https://congtythuoc.netlify.app/',
-    video: 'không',
+    // video: 'không',
     tags: [
       'react',
       'bootstrap',
@@ -172,7 +172,7 @@ const portfolio = [
     backend: 'không',
     source: 'https://github.com/kieuduc123/Project-VETC',
     preview: 'https://vetcvn.netlify.app/',
-    // video: 'https://youtu.be/kvvyQNWTAMQ',
+    // video: '',
     tags: [
       'html',
       'css',
@@ -196,7 +196,7 @@ const portfolio = [
     backend: 'không',
     source: 'https://github.com/kieuduc123/Project-BVM',
     preview: 'https://project-bvm.netlify.app/',
-    video: 'không',
+    // video: 'không',
     tags: [
       'psd --> html',
       'css',

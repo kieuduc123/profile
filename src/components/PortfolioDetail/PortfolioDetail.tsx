@@ -49,7 +49,7 @@ const PortfolioDetail: React.FC<Props> = ({ item, id }) => {
               <li> Tags - <span style={{ textTransform: "lowercase" }}>{item.tags.join(' / ')}</span> </li>
               <li> Source - <a href={item.source} target="_blank" rel="noopener noreferrer">{item.source}</a> </li>
               <li> Demo - <a href={item.preview} target="_blank" rel="noopener noreferrer">{item.preview}</a> </li>
-              <li> Preview video - <a href={item.video} target="_blank" rel="noopener noreferrer">{item.video}</a> </li>
+              {/*<li> Preview video - <a href={item.video} target="_blank" rel="noopener noreferrer">{item.video}</a> </li>*/}
             </ul>
           </div>
 
