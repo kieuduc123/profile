@@ -13,7 +13,8 @@ const Home = () => {
       <div className="section home" data-aos="fade-up">
         <div className="color-block"></div>
         <div className="home__img">
-          <div className="home__img-wrap"></div>
+          <div className="home__img-wrap">
+          </div>
         </div>
         <div className="home__text">
           <div className="home__text-wrap">

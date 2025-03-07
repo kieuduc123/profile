@@ -28,7 +28,7 @@
       background-image: url(../../assets/face2.png);
       background-color: $black;
       @include tablet {
-        // background-image: url(../../assets/img-mobile.jpg);
+         background-image: url(../../assets/img-mobile.jpg);
         width: 270px;
         height: 270px;
         border-radius: 50%;
@@ -37,6 +37,7 @@
       }
       @include mobile {
         width: 230px;
+        background-image: url(../../assets/img-mobile.jpg);
         height: 230px;
       }
     }
