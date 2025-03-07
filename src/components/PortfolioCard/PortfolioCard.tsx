@@ -21,7 +21,8 @@ const PortfolioCard: React.FC<Props> = ({ item, id }) => {
 
   return (
     <div className="portfolio-card" onClick={handleClick}>
-      <div className="bg-wrap" style={{ backgroundImage: `url(${item.thumbUrl[0]})` }}></div>
+      <div className="bg-wrap" style={{ backgroundImage: `url(${item.thumbUrl[0]})` }}>
+      </div>
       <h3>{item.title}</h3>
     </div>
   );

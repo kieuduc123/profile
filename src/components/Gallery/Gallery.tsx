@@ -37,7 +37,7 @@ const Gallery: React.FC<GalleryProps> = ({ item }) => {
                 >
                     {item.thumbUrl.map((url, i) => (
                         <SwiperSlide key={i}>
-                            <img src={url} />
+                            <img src={url} loading="lazy" alt="description" />
                         </SwiperSlide>
                     ))}
                 </Swiper>
@@ -54,7 +54,7 @@ const Gallery: React.FC<GalleryProps> = ({ item }) => {
                 >
                     {item.thumbUrl.map((url, i) => (
                         <SwiperSlide key={i}>
-                            <img src={url} />
+                            <img src={url} loading="lazy"/>
                         </SwiperSlide>
                     ))}
                 </Swiper>

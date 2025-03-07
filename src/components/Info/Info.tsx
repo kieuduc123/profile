@@ -78,7 +78,7 @@ const Info = () => {
         <Button>
           <a
             target='_blank'
-            href="https://drive.google.com/file/d/1q4f0ar4vOdC7ZTbEM2U6YI70_56R7bD8/view?usp=sharing"
+            href='https://bit.ly/cv_duc '
             rel="noopener"
             download
           >

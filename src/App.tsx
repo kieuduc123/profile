@@ -1,40 +1,41 @@
-import { Fragment } from 'react';
+import { Fragment, lazy, Suspense } from 'react';
 import './assets/boxicons-2.1.2/css/boxicons.min.css';
 import 'aos/dist/aos.css';
-import * as AOS from "aos";
+import * as AOS from 'aos';
 import Home from './pages/Home';
 import ToggleTheme from './components/ToggleTheme';
 import { Route, Routes } from 'react-router-dom';
-import About from './pages/About';
-import Portfolio from './pages/Portfolio';
-import Contact from './pages/Contact';
 // import Blog from './pages/Blog';
-import "./App.scss";
-import './scss/_variables.scss'
+import './App.scss';
+import './scss/_variables.scss';
 import Header from './components/Header';
-import NotFound from './components/NotFound';
 import * as React from 'react';
-
+const About = lazy(() => import('./pages/About'));
+const Portfolio = lazy(() => import('./pages/Portfolio'));
+const Contact = lazy(() => import('./pages/Contact'));
+const NotFound = lazy(() => import('./components/NotFound'));
 
 const App = () => {
-   React.useEffect(() => {
+  React.useEffect(() => {
     AOS.init({
       duration: 1200,
-    })
-  }, [])
+    });
+  }, []);
+
   return (
     <Fragment>
-     <Header />
+      <Header />
       <ToggleTheme />
-       <div className="main">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/portfolio" element={<Portfolio />} />
-          <Route path="/contact" element={<Contact />} />
-          {/*<Route path="/blog" element={<Blog />} />*/}
-          <Route  path="*" element={<NotFound />}></Route>
-        </Routes>
+      <div className="main">
+        <Suspense fallback={''}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/portfolio" element={<Portfolio />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </Suspense>
       </div>
     </Fragment>
   );
