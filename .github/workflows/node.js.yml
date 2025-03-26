@@ -1,4 +1,4 @@
-name: Notify Discord on Commit
+name: Build & Notify Discord
 
 on:
   push:
@@ -7,13 +7,18 @@ on:
       - dev
 
 jobs:
-  notify_discord:
+  build_check:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
-        with:
-          fetch-depth: 2  # Lấy đủ commit để tránh lỗi git log
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Build Project
+        id: build_step
+        run: npm run build
 
       - name: Get Commit Messages
         id: get_commits
@@ -21,7 +26,8 @@ jobs:
           commits=$(git log -1 --pretty=format:"- \`%h\` %s by **%an**")
           echo "commits=$commits" >> $GITHUB_ENV
 
-      - name: Notify Discord
+      - name: Notify Discord (Success)
+        if: success()
         env:
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
         run: |
@@ -31,10 +37,27 @@ jobs:
             "username": "GitHub Actions",
             "avatar_url": "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png",
             "embeds": [{
-              "title": "🚀 New Commit Pushed!",
-              "description": "**Branch:** `${{ github.ref_name }}`\n**Commit Messages:**\n${{ env.commits }}",
-              "color": 15258703,
-              "url": "https://github.com/${{ github.repository }}/commit/${{ github.sha }}"
+              "title": "✅ Build Successful!",
+              "description": "**Branch:** `${{ github.ref_name }}`\n**Commit Messages:**\n${{ env.commits }}\n\n🚀 Build completed successfully!",
+              "color": 3066993
+            }]
+          }' \
+          $DISCORD_WEBHOOK_URL
+
+      - name: Notify Discord (Failure)
+        if: failure()
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+        run: |
+          curl -H "Content-Type: application/json" \
+          -X POST \
+          -d '{
+            "username": "GitHub Actions",
+            "avatar_url": "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png",
+            "embeds": [{
+              "title": "❌ Build Failed!",
+              "description": "**Branch:** `${{ github.ref_name }}`\n**Commit Messages:**\n${{ env.commits }}\n\n🚨 Build failed. Check logs for details.",
+              "color": 15158332
             }]
           }' \
           $DISCORD_WEBHOOK_URL
