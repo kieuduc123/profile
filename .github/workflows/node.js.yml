@@ -12,20 +12,29 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 2  # Lấy đủ commit để tránh lỗi git log
 
       - name: Get Commit Messages
         id: get_commits
         run: |
-          commits=$(git log -1 --pretty=format:'- `%h` %s by **%an**')
+          commits=$(git log -1 --pretty=format:"- \`%h\` %s by **%an**")
           echo "commits=$commits" >> $GITHUB_ENV
 
       - name: Notify Discord
-        uses: Ilshidur/action-discord@master
-        with:
-          webhook: ${{ secrets.DISCORD_WEBHOOK_URL }}
-          message: |
-            🔔 **New Commit Pushed!**
-            **Branch:** `${{ github.ref_name }}`
-            **Commit Messages:**  
-            ${{ env.commits }}
-            **🔗 Repository:** [${{ github.repository }}](https://github.com/${{ github.repository }})
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+        run: |
+          curl -H "Content-Type: application/json" \
+          -X POST \
+          -d '{
+            "username": "GitHub Actions",
+            "avatar_url": "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png",
+            "embeds": [{
+              "title": "🚀 New Commit Pushed!",
+              "description": "**Branch:** `${{ github.ref_name }}`\n**Commit Messages:**\n${{ env.commits }}",
+              "color": 15258703,
+              "url": "https://github.com/${{ github.repository }}/commit/${{ github.sha }}"
+            }]
+          }' \
+          $DISCORD_WEBHOOK_URL
